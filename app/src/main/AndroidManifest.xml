@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.Premsuda.minimaltodo" >
+
+    <uses-permission android:name="ANDROID.PERMISSION.INTERNET"/>
+    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE"/>
+
+    <!--We set theme to DarkTheme because when the app opens it shows
+    a white screen if our theme here is LightTheme. The screen is shown for
+    about 1 second, but it's jarring if users have set Night Mode to true.
+    -->
+    <application
+        android:name="com.example.Premsuda.minimaltodo.Analytics.AnalyticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Top Note"
+        android:theme="@style/CustomStyle.DarkTheme"
+        >
+        <activity
+            android:name="com.example.Premsuda.minimaltodo.Main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:label="Top Note" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.Premsuda.minimaltodo.AddToDo.AddToDoActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.Premsuda.minimaltodo.Main.MainActivity"
+            />
+
+        <activity android:name="com.example.Premsuda.minimaltodo.About.AboutActivity"
+            android:label="Top Note"
+            android:parentActivityName="com.example.Premsuda.minimaltodo.Main.MainActivity"
+            />
+
+        <activity android:name="com.example.Premsuda.minimaltodo.Reminder.ReminderActivity"
+            android:label="Top Note"
+            />
+
+        <service android:name="com.example.Premsuda.minimaltodo.Utility.TodoNotificationService"
+            />
+        <service android:name="com.example.Premsuda.minimaltodo.Utility.DeleteNotificationService"
+            />
+        <activity android:name="com.example.Premsuda.minimaltodo.Settings.SettingsActivity"
+            android:parentActivityName="com.example.Premsuda.minimaltodo.Main.MainActivity"
+
+            />
+
+    </application>
+
+
+</manifest>
